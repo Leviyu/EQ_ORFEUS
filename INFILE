@@ -2,22 +2,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+# =========================
+# INPUT:
+# 	parameters to change
+# =========================
+<YEAR_LIST>						2013 2014
+								# year if data to collect
 <Time_Series_Length>			120
 								# in minutes
-
 <Event_Depth>					50
 								# in minutes
-
 <rdseed_absolute_path>			/home/hongyu_ubuntu/bin/resource/rdseedv5.3.1/rdseed.rh6.linux_64
+								# absolute path of rdseed location
 

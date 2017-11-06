@@ -1,8 +1,17 @@
 # EQ ORFEUS
 
+This package is a wrap up tool to collect broadband data from ORFEUS.
+It first use [ORFEUS webservices](https://www.orfeus-eu.org/data/eida/webservices/) to download both waveform data and station metadata (xml format). Then the station xml metadata is converted to dataless seed file using a java tool maintained by [IRIS](https://seiscode.iris.washington.edu/projects/stationxml-converter/files). After this, the waveform data and dataless seed data is combined with rdseed to produce sac format data for all three components, corresponding to thress sac file.
+
 # Usage
 Parameters are specified in `./INFILE`
 
+To execute the code:
+```shell
+csh c00.mother.sh
+```
+
+The collected data is stored under `./DATADIR/${YEAR}/${event_name}`
 
 
 # Notes:
