@@ -19,20 +19,20 @@ Each column of the eventStation file is explained below:
 1. Station Name
 2. Network Name
 3. Distance
-4. 
+4. "DEGREE"
 5. Azimuth
-6.
+6. "deg"
 7. Back Azimuth
-8. 
+8. "deg"
 9. Station Latitude
 10. Station Longitude
 11. Event Latitude
 12. Event Longitude
 13. Event Depth
-14. 
-15. 
+14. "km"
+15. "mww"
 16. Event Magnitude
-17. 
-18. 
+17. "VEBSN"
+18. "EIDA"
 19. Event Name
 
