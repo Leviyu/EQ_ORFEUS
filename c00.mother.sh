@@ -21,10 +21,6 @@ set DATADIR = $PWD/DATADIR
 
 
 
-
-
-
-
 mkdir -p $DATADIR
 mkdir -p $LOG
 

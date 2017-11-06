@@ -1,5 +1,6 @@
 #!/bin/tcsh
-
+# daughter scrip to execute collectiong process for each year
+#
 
 
 
