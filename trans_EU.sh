@@ -6,11 +6,10 @@
 # Input: file, EVETN
 #        file, *fseed or *seed
 #
-# Output: ${HOME}/DATA/JP.Mw6.50km/${EQ}/*sac
-#         ${HOME}/DATA/JP.Mw6.50km/${EQ}/eventStation.${EQ}
 #
 # Shule Yu
 # Feb 10 2014
+# Modified by Hongyu Oct 2017
 # =================================================================
 
 dataless=$1
@@ -19,16 +18,9 @@ inputdata=$2
 # 0. clean up everything. only *fseed and EVENT and this script exists.
 mkdir -p problem_record
 read EQ EVENTTIMEH EVENTTIMEM EVENTTIMES EVLA EVLO EVDE EVMAG MAGTYPE < EVENT 
-#rm *sac *SAC cut_problem > /dev/null 2>&1
-#rm -r problem_record/* > /dev/null 2>&1
-#rm eventStation.${EQ}
 
 # 1. decompress every *fseed and *seed file
-#for inputdata in `ls *fseed 2> /dev/null` `ls *seed 2> /dev/null`
-#do
-#echo "$inputdata"
-    rdseed -pdf ${inputdata} -g $dataless
-#done
+rdseed -pdf ${inputdata} -g $dataless
 
 # 2. get all station name, that's what we should get.
 saclst kstnm f `ls *.SAC` | awk '{print $2}' | sort | uniq > NTWORKS
@@ -155,10 +147,6 @@ NSTA2=`wc -l eventStation.${EQ} | awk '{print $1}'`
 # 10. clean up
 rm Omarker rdseed.err_log tmp NTWORKS > /dev/null 2>&1
 
-# 11. make the output
-#mkdir -p /home/hongyu/DATA/ORFEUS/DATA_1994_2005_depth_50/${EQ}
-#mv *sac /home/hongyu/DATA/ORFEUS/DATA_1994_2005_depth_50/${EQ}
-#mv eventStation.${EQ} /home/hongyu/DATA/ORFEUS/DATA_1994_2005_depth_50/${EQ}
 echo "${NSTA2}/${NSTA} records is collected." > result.txt
 echo "`date`" >> result.txt
 exit 0

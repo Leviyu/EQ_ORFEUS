@@ -1,0 +1,23 @@
+#!/bin/tcsh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Time_Series_Length>			120
+								# in minutes
+
+<Event_Depth>					50
+								# in minutes
+
+<rdseed_absolute_path>			/home/hongyu_ubuntu/bin/resource/rdseedv5.3.1/rdseed.rh6.linux_64
+

@@ -5,7 +5,7 @@
 # Hongyu@ASU Oct 2017
 
 
-set YEAR = (2015 )
+set YEAR = (2016 )
 
 
 
@@ -28,6 +28,7 @@ mkdir -p $DATADIR
 mkdir -p $LOG
 
 foreach year (`echo $YEAR`)
+	echo "--> Work on year $YEAR"
 	set INPUT = ($year $PWD $SUPDIR $DATADIR)
 	csh $PWD/c01.get_orgeus.sh $INPUT > & $LOG/logfile.${year} &
 end 
