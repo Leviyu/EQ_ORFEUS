@@ -23,7 +23,7 @@ Currently for each event, we are collecting 2 hour time series for all three com
 
 If not all three components are found, the station gets rejected
 ### Output file format
-The output file is in sac format, each of the sac file has a corresponding metadata entry stored in the same directory under `eventStation.${event_name}`
+The output file is in sac format, each station has three corresponding sac file. The corresponding metadata of each station is stored in the same directory as the sac file in `eventStation.${event_name}`
 Each column of the eventStation file is explained below:
 1. Station Name
 2. Network Name
