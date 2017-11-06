@@ -6,7 +6,7 @@
 # INPUT:
 # 	parameters to change
 # =========================
-<YEAR_LIST>						2013 2014
+<YEAR_LIST>						2014 2015 2016 2017
 								# year if data to collect
 <Time_Series_Length>			120
 								# in minutes

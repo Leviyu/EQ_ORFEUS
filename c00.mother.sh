@@ -32,4 +32,5 @@ foreach year (`echo $YEAR`)
 	echo "--> Work on year $year"
 	set INPUT = ($year $PWD $SUPDIR $DATADIR)
 	csh $PWD/c01.get_orgeus.sh $INPUT > & $LOG/logfile.${year} &
+	sleep 1s
 end 
