@@ -1,4 +1,0 @@
-#EQ ORFEUS
-
-#Notes:
-
