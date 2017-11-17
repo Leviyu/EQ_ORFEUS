@@ -28,14 +28,14 @@ NSTA=`wc -l NTWORKS |awk '{print $1}'`
 
 # 3. however we throw away stations who gave us segament data.
 #    a little bit heavy hand here.
-while read STname
-do
-    if [ $(( `ls *.${STname}.*BHN*.SAC |wc -l`+`ls *.${STname}.*BHE*.SAC |wc -l`+`ls *.${STname}.*BHZ*.SAC |wc -l`)) -ne 3 ]
-    then
-        mv *.${STname}.*.SAC problem_record
-        mv SAC_*_${STname}_* problem_record
-    fi
-done < NTWORKS
+#while read STname
+#do
+    #if [ $(( `ls *.${STname}.*BHN*.SAC |wc -l`+`ls *.${STname}.*BHE*.SAC |wc -l`+`ls *.${STname}.*BHZ*.SAC |wc -l`)) -ne 3 ]
+    #then
+        #mv *.${STname}.*.SAC problem_record
+        #mv SAC_*_${STname}_* problem_record
+    #fi
+#done < NTWORKS
 
 # 4. rtr, rmean, taper, transfer response.
 #    change name, clean pzfiles
@@ -98,14 +98,14 @@ w ${file}BHR.sac ${file}BHT.sac
 q
 EOF
 
-if ! [ `saclst NPTS f ${file}BHR.sac | awk '{print $2}'` = `saclst NPTS f ${file}BHT.sac | awk '{print $2}'` ]
-then
-    mv ${file}*.sac  ./problem_record
-    echo "=======================" >> cut_problem
-    echo Cut problem! >> cut_problem
-    echo "=======================" >> cut_problem
-    echo "${file}" >> cut_problem
-fi
+#if ! [ `saclst NPTS f ${file}BHR.sac | awk '{print $2}'` = `saclst NPTS f ${file}BHT.sac | awk '{print $2}'` ]
+#then
+    #mv ${file}*.sac  ./problem_record
+    #echo "=======================" >> cut_problem
+    #echo Cut problem! >> cut_problem
+    #echo "=======================" >> cut_problem
+    #echo "${file}" >> cut_problem
+#fi
 
 done
 
