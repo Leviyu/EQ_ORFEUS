@@ -6,7 +6,7 @@
 
 set PWD = `pwd`
 set INFILE = $PWD/INFILE
-set YEAR = 2013
+set YEAR = 2014
 set PROCESS = 10
 
 set LOG = $PWD/LOG
@@ -17,7 +17,7 @@ mkdir -p $LOG
 echo "--> Work on $YEAR "
 
 
-set ID = orfeus_on_EQ1_${YEAR}
+set ID = ORFEUS_IN_DATABASE_${YEAR}
 mkdir -p $PWD/DATADIR/$ID
 cd $PWD/DATADIR/$ID
 
