@@ -4,32 +4,37 @@
 
 
 
-set year = $1
+set ID = $1
 set PWD = $2
 set SUPDIR = $3
 set DATADIR = $4
+set eq_list = $5
 
-set WORKDIR = $DATADIR/${year}
-set big_eq_list = $SUPDIR/big_list.EQ.1994_20171025
+set WORKDIR = $DATADIR/${ID}
 set network_list = $SUPDIR/ORFEUS_NETWORK
 set INFILE = $PWD/INFILE
 set EVENTS = $SUPDIR/EVENTS
 mkdir -p $WORKDIR
 
 cd $WORKDIR
-set eq_list = $WORKDIR/list.eq
-
 
 set depth_limit = `cat $INFILE|grep Event_Depth|awk '{print $2}'`
 set minutes_len = `cat $INFILE|grep Time_Series_Length|awk '{print $2}'`
 set rdseed_file = `cat $INFILE|grep rdseed_absolute_path|awk '{print $2}'`
-cat $big_eq_list|awk '$7=='$year' {print $0}' |awk -v sss=$depth_limit '$4>sss {print $1}'>! $eq_list
 
 
 foreach EQ (`cat $eq_list`)
 	echo "---> Collecting $EQ"
 	mkdir -p $WORKDIR/$EQ
 	cd $WORKDIR/$EQ
+
+	# check if eventStation exist, if does , skip
+	set eventStation_num = `cat $WORKDIR/$EQ/eventStation.${EQ}|wc -l`
+	if($eventStation_num > 20) then
+		echo " $EQ is collected, skip"
+		continue
+	endif
+
 	set year = `echo $EQ |cut -c 1-4`
 	set month = `echo $EQ |cut -c 5-6`
 	set day = `echo $EQ |cut -c 7-8`

@@ -1,0 +1,55 @@
+#!/usr/bin/python
+
+
+
+
+import sys
+import numpy as np
+
+
+
+
+
+filename = sys.argv[1]
+process = int(sys.argv[2])
+
+#print filename , process
+#filename = "hello"
+#process = 3
+
+inarray = []
+
+with open(filename,"r") as infile:
+    for line in infile:
+        intext = line.strip()
+        inarray.append(intext)
+
+new = np.asarray(inarray)
+inarray = new
+#print new
+
+
+filelen = len(inarray)
+#print inarray, "len : ", filelen
+
+INC = int(np.floor(filelen / process) )
+#print INC
+
+
+for iprocess in range(process):
+    outfile = ".%s.%d" % (filename, iprocess)
+    out = open(outfile,"w")
+    print "process "  , iprocess
+    for iINC in range(100):
+        index = iprocess + iINC * process
+        #print index
+        if index >= filelen:
+            continue
+        out_value = str(inarray[index])
+        #print out_value
+        out.writelines(out_value+"\n")
+    out.close()
+
+
+
+
